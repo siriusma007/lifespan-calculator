@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寿命计算器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h3 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    select, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>寿命计算器</h1>
+
+    <!-- 基础信息 -->
+    <h3>基础信息</h3>
+    <label for="age">请选择你的年龄段：</label>
+    <select id="age">
+      <option value="73">20~29岁（男性：73岁，女性：79岁）</option>
+      <option value="74">30~39岁（男性：74岁，女性：80岁）</option>
+      <option value="75">40~49岁（男性：75岁，女性：81岁）</option>
+      <option value="77">50~59岁（男性：77岁，女性：81岁）</option>
+      <option value="79">60~69岁（男性：79岁，女性：83岁）</option>
+      <option value="85">70岁及以上（男性：85岁，女性：89岁）</option>
+    </select>
+
+    <!-- 生活习惯 -->
+    <h3>生活习惯</h3>
+    <label for="exercise">每周锻炼 3 次：</label>
+    <select id="exercise">
+      <option value="0">否（加 0 岁）</option>
+      <option value="3">是（加 3 岁）</option>
+    </select>
+
+    <label for="veggies">爱吃果蔬：</label>
+    <select id="veggies">
+      <option value="0">否（加 0 岁）</option>
+      <option value="2">是（加 2 岁）</option>
+    </select>
+
+    <label for="pet">养宠物：</label>
+    <select id="pet">
+      <option value="0">否（加 0 岁）</option>
+      <option value="1">是（加 1 岁）</option>
+    </select>
+
+    <label for="smoke">每天抽烟：</label>
+    <select id="smoke">
+      <option value="0">不抽烟（加 0 岁）</option>
+      <option value="-2">20 支以下（减 2 岁）</option>
+      <option value="-7">1~2 包（减 7 岁）</option>
+      <option value="-12">超过 2 包（减 12 岁）</option>
+    </select>
+
+    <label for="sleep">睡眠超 10 小时或不足 5 小时：</label>
+    <select id="sleep">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-2">是（减 2 岁）</option>
+    </select>
+
+    <label for="obesity">肥胖：</label>
+    <select id="obesity">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-2">是（减 2 岁）</option>
+    </select>
+
+    <label for="posture">不良姿势：</label>
+    <select id="posture">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-2">是（减 2 岁）</option>
+    </select>
+
+    <label for="chronic">已有慢性病或经常得小病：</label>
+    <select id="chronic">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-5">是（减 5 岁）</option>
+    </select>
+
+    <!-- 心理状态 -->
+    <h3>心理状态</h3>
+    <label for="happy">多数时间感觉快乐、满足：</label>
+    <select id="happy">
+      <option value="0">否（加 0 岁）</option>
+      <option value="2">是（加 2 岁）</option>
+    </select>
+
+    <label for="optimistic">乐观：</label>
+    <select id="optimistic">
+      <option value="0">否（加 0 岁）</option>
+      <option value="1">一般乐观（加 1 岁）</option>
+      <option value="3">非常乐观（加 3 岁）</option>
+    </select>
+
+    <label for="friends">有分担烦恼的朋友：</label>
+    <select id="friends">
+      <option value="0">否（加 0 岁）</option>
+      <option value="1">是（加 1 岁）</option>
+    </select>
+
+    <label for="faith">信仰坚定：</label>
+    <select id="faith">
+      <option value="0">否（加 0 岁）</option>
+      <option value="7">是（加 7 岁）</option>
+    </select>
+
+    <label for="selfEsteem">自卑：</label>
+    <select id="selfEsteem">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-4">是（减 4 岁）</option>
+    </select>
+
+    <label for="stubborn">固执：</label>
+    <select id="stubborn">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-2">是（减 2 岁）</option>
+    </select>
+
+    <label for="adventure">爱冒险（如开快车）：</label>
+    <select id="adventure">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-2">是（减 2 岁）</option>
+    </select>
+
+    <label for="depression">抑郁：</label>
+    <select id="depression">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-1">轻度抑郁（减 1 岁）</option>
+      <option value="-3">重度抑郁（减 3 岁）</option>
+    </select>
+
+    <!-- 婚姻情况 -->
+    <h3>婚姻情况</h3>
+    <label for="married">婚姻状态：</label>
+    <select id="married">
+      <option value="0">未婚（加 0 岁）</option>
+      <option value="1">已婚（加 1 岁）</option>
+      <option value="-9">离婚独居（男性减 9 岁）</option>
+      <option value="-5">离婚独居（女性减 5 岁）</option>
+      <option value="-0.5">女性 40 岁后无子女（减 0.5 岁）</option>
+    </select>
+
+    <!-- 职业状况 -->
+    <h3>职业状况</h3>
+    <label for="researcher">是否为专业研究人员：</label>
+    <select id="researcher">
+      <option value="0">否（加 0 岁）</option>
+      <option value="1.5">是（加 1.5 岁）</option>
+    </select>
+
+    <label for="work60">60 岁仍工作：</label>
+    <select id="work60">
+      <option value="0">否（加 0 岁）</option>
+      <option value="2">是（加 2 岁）</option>
+    </select>
+
+    <label for="work65">65 岁仍工作：</label>
+    <select id="work65">
+      <option value="0">否（加 0 岁）</option>
+      <option value="3">是（加 3 岁）</option>
+    </select>
+
+    <label for="cityWork">是否在大城市工作：</label>
+    <select id="cityWork">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-1">是（减 1 岁）</option>
+    </select>
+
+    <label for="countrysideWork">是否在城郊乡镇工作：</label>
+    <select id="countrysideWork">
+      <option value="0">否（加 0 岁）</option>
+      <option value="1">是（加 1 岁）</option>
+    </select>
+
+    <!-- 生活环境 -->
+    <h3>生活环境</h3>
+    <label for="openView">居住地方视野开阔：</label>
+    <select id="openView">
+      <option value="0">否（加 0 岁）</option>
+      <option value="2">是（加 2 岁）</option>
+    </select>
+
+    <label for="noise">长期受噪音污染：</label>
+    <select id="noise">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-1">是（减 1 岁）</option>
+    </select>
+
+    <!-- 遗传因素 -->
+    <h3>遗传因素</h3>
+    <label for="mother">母亲活到 80 岁以上：</label>
+    <select id="mother">
+      <option value="0">否（加 0 岁）</option>
+      <option value="4">是（加 4 岁）</option>
+    </select>
+
+    <label for="father">父亲活到 80 岁以上：</label>
+    <select id="father">
+      <option value="0">否（加 0 岁）</option>
+      <option value="2">是（加 2 岁）</option>
+    </select>
+
+    <label for="grandparents">祖父祖母活到 80 岁以上：</label>
+    <select id="grandparents">
+      <option value="0">否（加 0 岁）</option>
+      <option value="1">是（加 1 岁）</option>
+    </select>
+
+    <label for="heartDisease">直系亲属中有人 50 岁前死于心脏病：</label>
+    <select id="heartDisease">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-3">是（减 3 岁）</option>
+    </select>
+
+    <label for="stomachCancer">直系亲属中有人死于胃癌：</label>
+    <select id="stomachCancer">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-2">是（减 2 岁）</option>
+    </select>
+
+    <label for="breastCancer">有女性近亲死于乳腺癌：</label>
+    <select id="breastCancer">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-2">是（减 2 岁，仅适用于女性）</option>
+    </select>
+
+    <label for="suicide">有近亲 60 岁前死于自杀或其他疾病：</label>
+    <select id="suicide">
+      <option value="0">否（加 0 岁）</option>
+      <option value="-1">是（减 1 岁）</option>
+    </select>
+
+    <!-- 计算按钮 -->
+    <button onclick="calculate()">计算寿命</button>
+
+    <!-- 结果显示 -->
+    <div class="result" id="result">你的寿命将显示在这里。</div>
+  </div>
+  <script>
+    function calculate() {
+      // 获取各项分值
+      const baseLife = parseFloat(document.getElementById("age").value);
+      const exercise = parseFloat(document.getElementById("exercise").value);
+      const veggies = parseFloat(document.getElementById("veggies").value);
+      const pet = parseFloat(document.getElementById("pet").value);
+      const smoke = parseFloat(document.getElementById("smoke").value);
+      const sleep = parseFloat(document.getElementById("sleep").value);
+      const obesity = parseFloat(document.getElementById("obesity").value);
+      const posture = parseFloat(document.getElementById("posture").value);
+      const chronic = parseFloat(document.getElementById("chronic").value);
+      const happy = parseFloat(document.getElementById("happy").value);
+      const optimistic = parseFloat(document.getElementById("optimistic").value);
+      const friends = parseFloat(document.getElementById("friends").value);
+      const faith = parseFloat(document.getElementById("faith").value);
+      const selfEsteem = parseFloat(document.getElementById("selfEsteem").value);
+      const stubborn = parseFloat(document.getElementById("stubborn").value);
+      const adventure = parseFloat(document.getElementById("adventure").value);
+      const depression = parseFloat(document.getElementById("depression").value);
+      const married = parseFloat(document.getElementById("married").value);
+      const researcher = parseFloat(document.getElementById("researcher").value);
+      const work60 = parseFloat(document.getElementById("work60").value);
+      const work65 = parseFloat(document.getElementById("work65").value);
+      const cityWork = parseFloat(document.getElementById("cityWork").value);
+      const countrysideWork = parseFloat(document.getElementById("countrysideWork").value);
+      const openView = parseFloat(document.getElementById("openView").value);
+      const noise = parseFloat(document.getElementById("noise").value);
+      const mother = parseFloat(document.getElementById("mother").value);
+      const father = parseFloat(document.getElementById("father").value);
+      const grandparents = parseFloat(document.getElementById("grandparents").value);
+      const heartDisease = parseFloat(document.getElementById("heartDisease").value);
+      const stomachCancer = parseFloat(document.getElementById("stomachCancer").value);
+      const breastCancer = parseFloat(document.getElementById("breastCancer").value);
+      const suicide = parseFloat(document.getElementById("suicide").value);
+
+      // 计算总寿命
+      const totalLife =
+        baseLife +
+        exercise +
+        veggies +
+        pet +
+        smoke +
+        sleep +
+        obesity +
+        posture +
+        chronic +
+        happy +
+        optimistic +
+        friends +
+        faith +
+        selfEsteem +
+        stubborn +
+        adventure +
+        depression +
+        married +
+        researcher +
+        work60 +
+        work65 +
+        cityWork +
+        countrysideWork +
+        openView +
+        noise +
+        mother +
+        father +
+        grandparents +
+        heartDisease +
+        stomachCancer +
+        breastCancer +
+        suicide;
+
+      // 显示结果
+      document.getElementById("result").textContent = `根据计算，你的预计寿命为：${totalLife.toFixed(1)} 岁`;
+    }
+  </script>
+</body>
+</html>
