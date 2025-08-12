@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>寿命计算器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .result {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>寿命计算器</h1>
+
+    <!-- 年龄段选择 -->
+    <label for="age">请选择你的年龄段：</label>
+    <select id="age">
+      <option value="73">20~29岁（男性：73岁，女性：79岁）</option>
+      <option value="74">30~39岁（男性：74岁，女性：80岁）</option>
+      <option value="75">40~49岁（男性：75岁，女性：81岁）</option>
+      <option value="77">50~59岁（男性：77岁，女性：81岁）</option>
+      <option value="79">60~69岁（男性：79岁，女性：83岁）</option>
+      <option value="85">70岁及以上（男性：85岁，女性：89岁）</option>
+    </select>
+
+    <!-- 生活习惯 -->
+    <label for="exercise">每周锻炼3次：</label>
+    <select id="exercise">
+      <option value="0">否</option>
+      <option value="3">是</option>
+    </select>
+
+    <label for="veggies">爱吃果蔬：</label>
+    <select id="veggies">
+      <option value="0">否</option>
+      <option value="2">是</option>
+    </select>
+
+    <label for="smoke">每天抽烟：</label>
+    <select id="smoke">
+      <option value="0">不抽烟</option>
+      <option value="-2">20支以下</option>
+      <option value="-7">1~2包</option>
+      <option value="-12">超过2包</option>
+    </select>
+
+    <!-- 心理状态 -->
+    <label for="happy">多数时间感觉快乐、满足：</label>
+    <select id="happy">
+      <option value="0">否</option>
+      <option value="2">是</option>
+    </select>
+
+    <label for="optimistic">乐观：</label>
+    <select id="optimistic">
+      <option value="0">否</option>
+      <option value="2">是</option>
+    </select>
+
+    <!-- 婚姻情况 -->
+    <label for="married">已婚：</label>
+    <select id="married">
+      <option value="0">否</option>
+      <option value="1">是</option>
+    </select>
+
+    <!-- 计算按钮 -->
+    <button onclick="calculate()">计算寿命</button>
+
+    <!-- 结果显示 -->
+    <div class="result" id="result">你的寿命将显示在这里。</div>
+  </div>
+
+  <script>
+    function calculate() {
+      // 获取基础寿命
+      const baseLife = parseInt(document.getElementById("age").value);
+
+      // 获取各项分值
+      const exercise = parseInt(document.getElementById("exercise").value);
+      const veggies = parseInt(document.getElementById("veggies").value);
+      const smoke = parseInt(document.getElementById("smoke").value);
+      const happy = parseInt(document.getElementById("happy").value);
+      const optimistic = parseInt(document.getElementById("optimistic").value);
+      const married = parseInt(document.getElementById("married").value);
+
+      // 计算总寿命
+      const totalLife = baseLife + exercise + veggies + smoke + happy + optimistic + married;
+
+      // 显示结果
+      document.getElementById("result").textContent = `根据计算，你的预计寿命为：${totalLife} 岁`;
+    }
+  </script>
+</body>
+</html>
